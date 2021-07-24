@@ -1,5 +1,5 @@
 # VNC
-```sh
+```bash
 #!/usr/bin/env bash
 
 echo -e "\n VNC Option"
