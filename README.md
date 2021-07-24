@@ -2,9 +2,9 @@
 ```bash
 #!/usr/bin/env bash
 
-echo -e "\n VNC Option"
-
 read -p "
+  VNC Option
+  
    S : Start
    E : End
 <  " option
