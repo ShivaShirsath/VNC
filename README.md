@@ -1,6 +1,7 @@
 # VNC
 **Install**
 ```bash
+cd ~ && git clone git://github.com/ShivaShirsath/VNC.git && cd VNC && bash install
 ```
 **Error**
 ```bash
