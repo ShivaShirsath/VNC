@@ -69,6 +69,7 @@ while true; do
         esac
 done
 ```
+**Error**
 ```bash
 perl: warning: Setting locale failed.
 perl: warning: Please check that your locale settings:
@@ -78,7 +79,7 @@ perl: warning: Please check that your locale settings:
 are supported and installed on your system.
 perl: warning: Falling back to the standard locale ("C").
 ```
-   Solution 
+   **Solution**
    ```bash
    locale-gen en_US.UTF-8
    export LANGUAGE=en_US.UTF-8
