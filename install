@@ -1,5 +1,5 @@
 sudo apt install wget -y
-wget
+wget https://raw.githubusercontent.com/ShivaShirsath/VNC/main/vnc
 mv vnc /usr/local/bin/vnc
 chmod +x /usr/local/bin/vnc
 echo "Installed"
