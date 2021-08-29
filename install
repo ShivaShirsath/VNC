@@ -1,0 +1,5 @@
+sudo apt install wget -y
+wget
+mv vnc /usr/local/bin/vnc
+chmod +x /usr/local/bin/vnc
+echo "Installed"
