@@ -5,6 +5,7 @@ cd ~
 git clone git://github.com/ShivaShirsath/VNC.git
 cd VNC
 bash install
+cd ~
 ```
 **Error**
 ```bash
