@@ -1,0 +1,68 @@
+#!/bin/bash
+
+YES=0
+NO=1
+DIALOG_ESC=255
+HEIGHT=0
+WIDTH=0
+
+display_result() {
+        dialog \
+        --title "$1" \
+        --no-collapse \
+        --msgbox "$result" $HEIGHT $WIDTH
+}
+
+type -p "dialog" &>/dev/null || {
+        echo -e "\n${R} [${W}-${R}]${G} Installing package : ${Y}dialog${C}"${W};
+        sudo apt install "dialog" -y --no-install-recommends;
+}
+
+while true; do
+        dialog \
+        --title "VNC" \
+        --clear \
+        --ok-label "Start" \
+        --cancel-label "Stop" \
+        --yesno "Start\nStop\nESC" $HEIGHT $WIDTH
+
+        case $? in
+                $YES )
+                        clear
+                        tigervncserver -kill :*
+                        rm -rf /username/.vnc/localhost:*.pid
+                        rm -rf /tmp/.X1-lock
+                        rm -rf /tmp/.X11-unix/X1
+
+                        tigervncserver -kill :*
+                        rm -rf /username/.vnc/localhost:*.pid
+                        rm -rf /tmp/.X1-lock
+                        rm -rf /tmp/.X11-unix/X1
+
+                        tigervncserver \
+                                -xstartup /usr/bin/startxfce4 \
+                                -geometry 1512x750 \
+                                -localhost no :1 \
+                                -pixelformat rgb888 \
+                                -depth 32 \
+                                -SecurityTypes None \
+                                --I-KNOW-THIS-IS-INSECURE
+
+                        $PREFIX/bin/termux-open vnc://localhost:5901
+                break
+                ;;
+                $NO )
+                        clear
+                        tigervncserver -kill :*
+                        rm -rf /username/.vnc/localhost:*.pid
+                        rm -rf /tmp/.X1-lock
+                        rm -rf /tmp/.X11-unix/X1
+                break
+                ;;
+                $DIALOG_ESC )
+                        clear
+                        exit 1
+                break
+                ;;
+        esac
+done
