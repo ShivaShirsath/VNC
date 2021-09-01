@@ -34,13 +34,13 @@ start() {
 	printf "${g}"
 
 	tigervncserver \
-	-xstartup /usr/bin/startxfce4 \
-	-geometry 1512x750 \
-	-localhost no :1 \
-	-pixelformat rgb888 \
-	-depth 32 \
-	-SecurityTypes None \
-	--I-KNOW-THIS-IS-INSECURE
+		-xstartup /usr/bin/startxfce4 \
+		-geometry 1512x750 \
+		-localhost no :1 \
+		-pixelformat rgb888 \
+		-depth 32 \
+		-SecurityTypes None \
+		--I-KNOW-THIS-IS-INSECURE
 
 	$PREFIX/bin/termux-open vnc://localhost:5901
 
@@ -49,10 +49,10 @@ start() {
 
 while true; do
 	dialog \
-	--title "VNC" \
-	--clear \
-	--yes-label "Start" \
-	--no-label "Stop" \
+		--title "VNC" \
+		--clear \
+		--yes-label "Start" \
+		--no-label "Stop" \
 	--yesno "" $HEIGHT $WIDTH
 
 	case $? in
