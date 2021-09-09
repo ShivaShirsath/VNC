@@ -15,7 +15,7 @@ HEIGHT=0
 WIDTH=0
 
 
-packs=(dialog tigervnc-standalone-server tigervnc-common tigervnc-xorg-extension tigervnc-viewer)
+packs=(dialog tigervnc-standalone-server tigervnc-common tigervnc-viewer)
 for pack in "${packs[@]}"; do
 	type -p "$pack" &>/dev/null || {
 		echo -e "\n${R} [${W}-${R}]${G} Installing package : ${Y}$pack${C}"${W}
