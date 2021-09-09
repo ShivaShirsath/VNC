@@ -1,3 +1,12 @@
+
+packs=(dialog tigervnc-standalone-server tigervnc-common)
+for pack in "${packs[@]}"; do
+	type -p "$pack" &>/dev/null || {
+		echo -e "\n${R} [${W}-${R}]${G} Installing package : ${Y}$pack${C}"${W}
+		sudo apt install "$pack" -y --no-install-recommends
+        }
+done
+
 cp -rf vnc /usr/local/bin/vnc
 chmod +x /usr/local/bin/vnc
 echo "Installed"
