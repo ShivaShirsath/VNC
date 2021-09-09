@@ -14,12 +14,6 @@ DIALOG_ESC=255
 HEIGHT=0
 WIDTH=0
 
-
-	type -p "$pack" &>/dev/null || {
-		echo -e "\n${R} [${W}-${R}]${G} Installing package : ${Y}dialog tigervnc-standalone-server tigervnc-common${C}"${W}
-		sudo apt install dialog tigervnc-standalone-server tigervnc-common -y --no-install-recommends
-        }
-
 stop() {
 	printf "${R}"
 
