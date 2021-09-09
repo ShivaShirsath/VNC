@@ -3,6 +3,7 @@
 ```bash
 PWDx=$PWD
 cd ~
+rm -rf VNC
 git clone git://github.com/ShivaShirsath/VNC.git
 cd VNC
 bash install
