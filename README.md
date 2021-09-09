@@ -10,14 +10,6 @@
    bash install
    cd $PWDx
    ```
-+ **Un-Install**
-   ```bash
-   PWDx=$PWD
-   cd $HOME
-   cd VNC
-   bash uninstall
-   cd $PWDx
-   ```
 + **Error** ( if this type of error occurs )
    ```bash
    perl: warning: Setting locale failed.
@@ -37,4 +29,12 @@
    sudo dpkg-reconfigure locales 
    # select en_US.UTF-8 UTF-8 (159 ) 
    # select en_US.UTF-8 ( 3 )
+   ```  
++ **Un-Install**
+   ```bash
+   PWDx=$PWD
+   cd $HOME
+   cd VNC
+   bash uninstall
+   cd $PWDx
    ```
