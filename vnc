@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CLR="$(printf '\033[0m')"
+Z="$(printf '\033[0m')"
 R="$(printf '\033[1;31m')"
 g="$(printf '\033[0;32m')"
 G="$(printf '\033[1;32m')"
@@ -14,10 +14,14 @@ DIALOG_ESC=255
 HEIGHT=0
 WIDTH=0
 
-type -p "dialog" &>/dev/null || {
-	echo -e "\n${R} [${W}-${R}]${G} Installing package : ${Y}dialog${C}"${W};
-	sudo apt install "dialog" -y --no-install-recommends;
-}
+
+packs=(dialog tigervnc-standalone-server tigervnc-common tigervnc-xorg-extension tigervnc-viewer)
+for pack in "${packs[@]}"; do
+	type -p "$pack" &>/dev/null || {
+		echo -e "\n${R} [${W}-${R}]${G} Installing package : ${Y}$pack${C}"${W}
+		sudo apt install "$pack" -y --no-install-recommends
+        }
+done
 
 stop() {
 	printf "${R}"
