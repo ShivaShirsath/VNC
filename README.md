@@ -1,33 +1,32 @@
 # VNC
-**Install**
-```bash
-PWDx=$PWD
-cd $HOME
-rm -rf VNC
-git clone git://github.com/ShivaShirsath/VNC.git
-cd VNC
-bash install
-cd $PWDx
-```
-**Un-Install**
-```bash
-PWDx=$PWD
-cd $HOME
-cd VNC
-bash uninstall
-cd $PWDx
-```
-**Error**
-```bash
-perl: warning: Setting locale failed.
-perl: warning: Please check that your locale settings:
-        LANGUAGE = (unset),
-        LC_ALL = (unset),
-        LANG = "en_US.UTF-8"
-are supported and installed on your system.
-perl: warning: Falling back to the standard locale ("C").
-```
-> **Solution**
++ **Install**
+   ```bash
+   PWDx=$PWD
+   cd $HOME
+   rm -rf VNC
+   git clone git://github.com/ShivaShirsath/VNC.git
+   cd VNC
+   bash install
+   cd $PWDx
+   ```
++ **Un-Install**
+   ```bash
+   PWDx=$PWD
+   cd $HOME
+   cd VNC
+   bash uninstall
+   cd $PWDx
+   ```
++ **Error** ( if this type of error occurs )
+   ```bash
+   perl: warning: Setting locale failed.
+   perl: warning: Please check that your locale settings:
+           LANGUAGE = (unset),
+           LC_ALL = (unset),
+           LANG = "en_US.UTF-8" are supported and installed on your system.
+   perl: warning: Falling back to the standard locale ("C").
+   ```
++ **Solution**
    ```bash
    locale-gen en_US.UTF-8
    export LANGUAGE=en_US.UTF-8
