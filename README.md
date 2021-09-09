@@ -2,7 +2,7 @@
 **Install**
 ```bash
 PWDx=$PWD
-cd ~
+cd $HOME
 rm -rf VNC
 git clone git://github.com/ShivaShirsath/VNC.git
 cd VNC
@@ -12,12 +12,11 @@ cd $PWDx
 **Un-Install**
 ```bash
 PWDx=$PWD
-cd ~
+cd $HOME
 cd VNC
 bash uninstall
 cd $PWDx
 ```
-
 **Error**
 ```bash
 perl: warning: Setting locale failed.
@@ -28,7 +27,7 @@ perl: warning: Please check that your locale settings:
 are supported and installed on your system.
 perl: warning: Falling back to the standard locale ("C").
 ```
-- **Solution**
+> **Solution**
    ```bash
    locale-gen en_US.UTF-8
    export LANGUAGE=en_US.UTF-8
