@@ -34,7 +34,7 @@ start() {
 	tigervncserver \
 		-xstartup /usr/bin/startxfce4 \
 		-geometry 1512x750 \
-		-localhost no :1 \
+		-localhost yes :1 \
 		-pixelformat rgb888 \
 		-depth 32 \
 		-SecurityTypes None \

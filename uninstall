@@ -9,10 +9,21 @@ W="$(printf '\033[1;37m')"                                                      
 packs=(tigervnc-standalone-server tigervnc-common)
 for pack in "${packs[@]}"; do
         type -p "$pack" &>/dev/null || {
-                echo -e "\n${R} [${W}-${R}]${R} Un-Installing package : ${Y}$pack${C}"${W}
-                sudo apt remove --purge "$pack" -y
+                echo -e "
+${R} [${W}-${R}]${R} Un-Installing package : ${Y}$pack
+"${Z}
+                sudo apt remove --purge $pack -y
+		sudo apt autoclean
+		sudo apt autoremove --purge
         }
 done
 
+echo ""
+
 rm -rf /usr/local/bin/vnc
-echo "${R}Un-Installed.${Z}"
+
+bash progress 1
+
+echo -e "
+ ${R}Un-Installed.${Z}
+"
