@@ -5,7 +5,7 @@
    PWDx=$PWD
    cd $HOME
    rm -rf VNC
-   git clone git://github.com/ShivaShirsath/VNC.git
+   git clone https://github.com/ShivaShirsath/VNC.git
    cd VNC
    bash install
    cd $PWDx
