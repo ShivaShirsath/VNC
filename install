@@ -20,6 +20,24 @@ ${R} [${W}-${R}]${G} Installing package : ${Y}$pack${Z}
 	sudo apt install $pack -y --no-install-recommends
 done
 
+echo -e "
+ ${Y}Enter Your Password & Confirmed it Once then type ${R}n${Z}
+"
+vncserver
+
+vncserver -kill :*
+rm -rf $HOME/.vnc/localhost:*.pid
+rm -rf /tmp/.X1-lock
+rm -rf /tmp/.X11-unix/X1
+    
+vncserver -kill :*
+rm -rf $HOME/.vnc/localhost:*.pid
+rm -rf /tmp/.X1-lock
+rm -rf /tmp/.X11-unix/X1
+    
+echo "export DISPLAY=":1"" >> /etc/profile
+echo "export PULSE_SERVER=127.0.0.1" >> /etc/profile
+
 cp -rf vnc /usr/local/bin/vnc
 echo -e "
  ${c}vnc ${y}copied to ${c}/usr/local/bin/vnc
