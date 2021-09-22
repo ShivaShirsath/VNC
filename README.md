@@ -11,7 +11,7 @@
    cd $PWDx
    ```
 + **If Error** ( if this type of error occurs )
-   ```b
+   ```py
    perl: warning: Setting locale failed.
    perl: warning: Please check that your locale settings:
            LANGUAGE = (unset),
