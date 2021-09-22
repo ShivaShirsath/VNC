@@ -10,7 +10,7 @@
    bash install
    cd $PWDx
    ```
-+ **If Error ** ( if this type of error occurs )
++ **If Error** ( if this type of error occurs )
    ```bash
    perl: warning: Setting locale failed.
    perl: warning: Please check that your locale settings:
