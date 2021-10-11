@@ -33,10 +33,7 @@ start() {
 
 	tigervncserver \
 		-xstartup /usr/bin/startxfce4 \
-		-geometry 1512x750 \
 		-localhost yes :1 \
-		-pixelformat rgb888 \
-		-depth 32 \
 		-SecurityTypes None \
 		--I-KNOW-THIS-IS-INSECURE
 
