@@ -1,0 +1,3 @@
+#!/bin/bash
+termux-open vnc://localhost:1
+
