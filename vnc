@@ -14,65 +14,56 @@ DIALOG_ESC=255
 HEIGHT=0
 WIDTH=0
 
-export PULSE_SERVER=127.0.0.1
-export MOZ_FAKE_NO_SANDBOX=1
-
 stop() {
-	printf "${R}"
-	
-	tigervncserver -kill :*
-	rm -rf $HOME/.vnc/localhost:*.pid
-	rm -rf /tmp/.X1-lock
-	rm -rf /tmp/.X11-unix/X1
+        printf "${R}"
 
-	printf "${Z}"
+        killall Xvnc
+
+        printf "${Z}"
 }
 
 start() {
-	printf "${g}"
+        printf "${g}"
 
-	tigervncserver \
-		-xstartup /usr/bin/startxfce4 \
-		-geometry $1 \
-		-localhost yes :1 \
-		-pixelformat rgb888 \
-		-depth 32 \
-		-SecurityTypes None \
-		--I-KNOW-THIS-IS-INSECURE
+        vncserver -listen tcp -geometry $1 -SecurityTypes None \
 
-	$PREFIX/bin/termux-open vnc://localhost:5901
+        printf "${Y}"
 
-	printf "${Z}"
+        vncserver -list
+
+        /data/data/com.termux/files/usr/bin/termux-open vnc://localhost:5901
+
+        printf "${Z}"
 }
 
 while true; do
-	dialog \
-		--title "VNC" \
-		--clear \
-		--yes-label "Portrait" \
-		--no-label "Landscape" \
-		--yesno "" $HEIGHT $WIDTH
+        dialog \
+                --title "VNC" \
+                --clear \
+                --yes-label "Portrait" \
+                --no-label "Landscape" \
+                --yesno "" $HEIGHT $WIDTH
 
-	case $? in
-		$PORTRAIT )
-			clear
+        case $? in
+                $PORTRAIT )
+                        clear
 
-			stop
-			start 972x1210
+                        stop
+                        start 972x1210
 
-		break
-		;;
-		$LANDSCAPE )
-			clear
+                break
+                ;;
+                $LANDSCAPE )
+                        clear
 
-			stop
-			start 1512x750
-		break
-		;;
-		$DIALOG_ESC )
-			clear
-			exit 1
-		break
-		;;
-	esac
+                        stop
+                        start 1512x750
+                break
+                ;;
+                $DIALOG_ESC )
+                        clear
+                        exit 1
+                break
+                ;;
+        esac
 done
