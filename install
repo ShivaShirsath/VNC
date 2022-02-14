@@ -13,44 +13,43 @@ C="$(printf '\033[1;36m')"
 
 clear
 
-for pack in dialog tigervnc-standalone-server tigervnc-common ; do
-	echo -e "
-${R} [${W}-${R}]${G} Installing package : ${Y}$pack${Z}
+for pkg in dialog tigervnc ; do
+        echo -e "
+${R} [${W}-${R}]${G} Installing package : ${Y}$pkg${Z}
 "
-	sudo apt install $pack -y --no-install-recommends
+        apt install $pkg -y
 done
 
 echo -e "
  ${Y}Enter Your Password & Confirmed it Once then type ${R}n${Z}
 "
-vncserver
 
-vncserver -kill :*
-rm -rf $HOME/.vnc/localhost:*.pid
-rm -rf /tmp/.X1-lock
-rm -rf /tmp/.X11-unix/X1
-    
-vncserver -kill :*
-rm -rf $HOME/.vnc/localhost:*.pid
-rm -rf /tmp/.X1-lock
-rm -rf /tmp/.X11-unix/X1
-    
-echo "export DISPLAY=":1"" >> /etc/profile
-echo "export PULSE_SERVER=127.0.0.1" >> /etc/profile
+vncserver -listen tcp
 
+vncserver -list
+
+killall Xvnc
+
+killall Xvnc
+
+
+cp -rf vnc /data/data/com.termux/files/usr/bin/vnc
+cp -rf launchVNC /data/data/com.termux/files/usr/bin/launchVNC
 cp -rf vnc /usr/local/bin/vnc
+cp -rf launchVNC /usr/local/bin/launchVNC
 echo -e "
- ${c}vnc ${y}copied to ${c}/usr/local/bin/vnc
+ ${c}vnc ${y}copied to ${c}/usr/bin/vnc
 "
 
-chmod +x /usr/local/bin/vnc
+chmod +x /data/data/com.termux/files/usr/bin/*
+chmod +x /usr/local/bin/*
 echo -e "
- ${g}Executable ${r}Permission ${y}is set to ${c}/usr/local/bin/vnc
+ ${g}Executable ${r}Permission ${y}is set to ${c}vnc
 "
 
 bash progress 2
 sleep 1
-$PREFIX/bin/termux-open https://play.google.com/store/apps/details?id=com.realvnc.viewer.android
+/data/data/com.termux/files/usr/bin/termux-open https://play.google.com/store/apps/details?id=com.realvnc.viewer.android
 echo -e "
  ${c}VNC Server ${y}Installed.
 
