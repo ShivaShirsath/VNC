@@ -40,7 +40,7 @@ start() {
 }
 
 while true; do
-        dialog \
+        /data/data/com.termux/files/usr/bin/dialog \
                 --title "VNC" \
                 --clear \
                 --yes-label "Portrait" \
