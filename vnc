@@ -20,7 +20,7 @@ export MOZ_FAKE_NO_SANDBOX=1
 stop() {
         printf "${R}"
 
-        killall Xvnc
+        /data/data/com.termux/files/usr/bin/killall Xvnc
 
         printf "${Z}"
 }
@@ -28,11 +28,11 @@ stop() {
 start() {
         printf "${g}"
 
-        vncserver -listen tcp -geometry $1 -SecurityTypes None \
+        /data/data/com.termux/files/usr/bin/vncserver -listen tcp -geometry $1 -SecurityTypes None \
 
         printf "${Y}"
 
-        vncserver -list
+        /data/data/com.termux/files/usr/bin/vncserver -list
 
         /data/data/com.termux/files/usr/bin/termux-open vnc://localhost:5901
 
