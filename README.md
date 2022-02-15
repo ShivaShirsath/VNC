@@ -1,4 +1,4 @@
-<h1 align=center>VNC<br>Virtual Network Computing</h1>
+<h1 align=center>Virtual Network Computing</h1>
 
 + **Install**
    ```bash
