@@ -5,6 +5,7 @@
    PWDx=$PWD
    cd $HOME
    rm -rf VNC
+   apt install -y git
    git clone https://github.com/ShivaShirsath/VNC.git
    cd VNC
    bash install
