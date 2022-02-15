@@ -18,19 +18,20 @@ for pkg in dialog tigervnc ; do
 ${R} [${W}-${R}]${G} Installing package : ${Y}$pkg${Z}
 "
         apt install $pkg -y
+        /data/data/com.termux/files/usr/bin/apt install tigervnc -y
 done
 
 echo -e "
  ${Y}Enter Your Password & Confirmed it Once then type ${R}n${Z}
 "
 
-vncserver -listen tcp
+/data/data/com.termux/files/usr/bin/vncserver -listen tcp
 
-vncserver -list
+/data/data/com.termux/files/usr/bin/vncserver -list
 
-killall Xvnc
+/data/data/com.termux/files/usr/bin/killall Xvnc
 
-killall Xvnc
+/data/data/com.termux/files/usr/bin/killall Xvnc
 
 
 cp -rf vnc /data/data/com.termux/files/usr/bin/vnc
