@@ -2,14 +2,7 @@
 
 + **Install**
    ```bash
-   PWDx=$PWD
-   cd $HOME
-   rm -rf VNC
-   apt install -y git
-   git clone https://github.com/ShivaShirsath/VNC.git
-   cd VNC
-   bash install
-   cd $PWDx
+   PWDx=$PWD && cd $HOME && rm -rf VNC && apt install -y git && git clone https://github.com/ShivaShirsath/VNC.git && cd VNC && bash install && cd $PWDx
    ```
 + **If Error** ( if this type of error occurs )
    ```diff
@@ -33,9 +26,5 @@
    ```  
 + **Un-Install**
    ```bash
-   PWDx=$PWD
-   cd $HOME
-   cd VNC
-   bash uninstall
-   cd $PWDx
+   PWDx=$PWD && cd $HOME && cd VNC && bash uninstall && cd $PWDx
    ```
