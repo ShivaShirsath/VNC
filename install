@@ -17,8 +17,7 @@ for pkg in dialog tigervnc ; do
         echo -e "
 ${R} [${W}-${R}]${G} Installing package : ${Y}$pkg${Z}
 "
-        apt install $pkg -y
-        /data/data/com.termux/files/usr/bin/apt install tigervnc -y
+        /data/data/com.termux/files/usr/bin/apt install $pkg -y
 done
 
 echo -e "
