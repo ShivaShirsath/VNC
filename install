@@ -13,43 +13,52 @@ C="$(printf '\033[1;36m')"
 
 clear
 
-for pkg in dialog tigervnc ; do
+for pkg in x11-repo tigervnc florence ; do
         echo -e "
 ${R} [${W}-${R}]${G} Installing package : ${Y}$pkg${Z}
 "
-        /data/data/com.termux/files/usr/bin/apt install $pkg -y
+	pkg install $pkg -y
 done
 
 echo -e "
  ${Y}Enter Your Password & Confirmed it Once then type ${R}n${Z}
 "
 
-/data/data/com.termux/files/usr/bin/vncserver -listen tcp
+vncserver -listen tcp
 
-/data/data/com.termux/files/usr/bin/vncserver -list
+vncserver -list
 
-/data/data/com.termux/files/usr/bin/killall Xvnc
+killall Xvnc
 
-/data/data/com.termux/files/usr/bin/killall Xvnc
+killall Xvnc
 
+killall Xvnc
 
 cp -rf vnc /data/data/com.termux/files/usr/bin/vnc
 cp -rf launchVNC /data/data/com.termux/files/usr/bin/launchVNC
-cp -rf vnc /usr/local/bin/vnc
-cp -rf launchVNC /usr/local/bin/launchVNC
+
+echo "#!/bin/bash
+/data/data/com.termux/files/usr/bin/vnc" > /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/usr/local/bin/vnc
+
+echo "#!/bin/bash
+termux-open vnc://localhost:1" > /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/usr/local/bin/launchVNC
+
 echo -e "
  ${c}vnc ${y}copied to ${c}/usr/bin/vnc
 "
 
 chmod +x /data/data/com.termux/files/usr/bin/*
-chmod +x /usr/local/bin/*
+chmod +x /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/usr/local/bin/*
+
 echo -e "
  ${g}Executable ${r}Permission ${y}is set to ${c}vnc
 "
 
 bash progress 2
 sleep 1
-/data/data/com.termux/files/usr/bin/termux-open https://play.google.com/store/apps/details?id=com.realvnc.viewer.android
+
+termux-open https://play.google.com/store/apps/details?id=com.realvnc.viewer.android
+
 echo -e "
  ${c}VNC Server ${y}Installed.
 
