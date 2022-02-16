@@ -29,7 +29,7 @@ stop() {
 start() {
         printf "${g}"
 
-        vncserver -listen tcp -geometry $1 -SecurityTypes None \
+        vncserver -listen tcp -geometry $1 -SecurityTypes None
 
         printf "${Y}"
 
