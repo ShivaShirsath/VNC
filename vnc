@@ -35,7 +35,7 @@ start() {
 
         vncserver -list
 
-        termux-open vnc://localhost:5901
+        termux-open vnc::1
 
         printf "${Z}"
 }
