@@ -37,18 +37,7 @@ killall Xvnc
 cp -rf vnc /data/data/com.termux/files/usr/bin/vnc
 cp -rf launchVNC /data/data/com.termux/files/usr/bin/launchVNC
 
-echo "#!/bin/bash
-/data/data/com.termux/files/usr/bin/vnc" > /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/usr/local/bin/vnc
-
-echo "#!/bin/bash
-termux-open vnc://localhost:1" > /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/usr/local/bin/launchVNC
-
-echo -e "
- ${c}vnc ${y}copied to ${c}/usr/bin/vnc
-"
-
 chmod +x /data/data/com.termux/files/usr/bin/*
-chmod +x /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu/usr/local/bin/*
 
 echo -e "
  ${g}Executable ${r}Permission ${y}is set to ${c}vnc
