@@ -39,7 +39,7 @@ start() {
 
         printf "${Z}"
 }
-
+: '
 while true; do
         dialog \
                 --title "VNC" \
@@ -58,11 +58,11 @@ while true; do
                 break
                 ;;
                 $LANDSCAPE )
-                        clear
+'                        clear
 
                         stop
                         start 1512x750
-                break
+: '                break
                 ;;
                 $DIALOG_ESC )
                         clear
@@ -71,3 +71,4 @@ while true; do
                 ;;
         esac
 done
+'
