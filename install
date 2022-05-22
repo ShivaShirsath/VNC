@@ -17,7 +17,7 @@ for pkg in x11-repo tigervnc florence ; do
         echo -e "
 ${R} [${W}-${R}]${G} Installing package : ${Y}$pkg${Z}
 "
-	pkg install $pkg -y
+	apt install $pkg -y
 done
 
 echo -e "
